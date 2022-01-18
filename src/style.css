@@ -1,0 +1,72 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  margin: 0;
+  height: 100%;
+  text-transform: capitalize;
+}
+
+.centered {
+  display: block;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.left {
+  margin-left: 20px;
+}
+.sizing {
+  width: 200px;
+  height: 200px;
+  border: 2px solid rgb(49,47,48);
+}
+
+ul {
+  overflow: hidden;
+  background-color: rgb(237,194,55);
+  position: fixed;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+ul li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+ul li a {
+  display: grid;
+  grid-row: span 1;
+  color: rgb(49,47,48);
+  text-align: center;
+  padding: 15px 30px 15px 20px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: arial;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
