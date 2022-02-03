@@ -16,6 +16,7 @@ const PokemonDetail = () => {
   const [moves, setMoves] = useState<string[]>([]);
   const [isSuccessful, setIsSuccessful] = useState("not yet");
   const url = useContext(UrlContext);
+  const [myPokemon, setMyPokemon] = useState<string>("");
 
   useEffect(() => {
     fetchData();
@@ -42,9 +43,11 @@ const PokemonDetail = () => {
   const probability = () => {
     const random = Math.random();
     if(random < 0.5) {
-      setIsSuccessful("No");
+      navigate("/");
     } else {
-      setIsSuccessful("Yes");
+      navigate("/myList");
+      setMyPokemon(myPokemon+`_${name}`+"");
+      localStorage.setItem('pokemon', myPokemon);
     }
   }
 
@@ -63,7 +66,7 @@ const PokemonDetail = () => {
           onClick={() => probability()}>Yes, use my Pokeball
         </button>
         <button
-          onClick={() => navigate("/list")}>No, go back to list
+          onClick={() => navigate("/")}>No, go back to list
         </button>
       </div>
       <Menu />

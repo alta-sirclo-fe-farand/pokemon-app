@@ -7,7 +7,7 @@ const Menu = () => {
   return (
     <ul>
       <li>
-        <a onClick={() => navigate("/list")}>PokeList</a>
+        <a onClick={() => navigate("/")}>PokeList</a>
       </li>
       <li>
         <a onClick={() => navigate("/myList")}>MyPokeList</a>

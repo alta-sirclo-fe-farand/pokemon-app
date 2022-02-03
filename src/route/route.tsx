@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Begin from '../home';
 import PokemonList from '../pokemonList';
 import PokemonDetail from '../pokemonDetail';
 import MyPokemonList from '../myPokemonList';
@@ -13,11 +12,10 @@ const Navigation = () => {
     <BrowserRouter>
       <UrlContext.Provider value={ url }>
         <Routes>
-          <Route path="list" element={<PokemonList />} />
           <Route path="detail/:id" element={<PokemonDetail />} />
           <Route path="myList" element={<MyPokemonList />} />
-          <Route path="/" element={<Begin />}>
-          </Route>
+          <Route path="/" element={<PokemonList />} />
+          <Route />
         </Routes>
       </UrlContext.Provider>
     </BrowserRouter>

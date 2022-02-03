@@ -8,7 +8,8 @@ const PokemonList = () => {
   const navigate = useNavigate();
   const [isReady, setIsReady] = useState(false);
   const [pokemons, setPokemons] = useState<any[]>([]);
-  const [url, setUrl] = useState<string>("https://pokeapi.co/api/v2/pokemon?limit=20");
+  const [url, setUrl] = useState<string>("https://pokeapi.co/api/v2/pokemon?offset=0&limit=20");
+  const resetURL = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=20";
   // const url = useContext(UrlContext);
 
   useEffect(() => {
@@ -27,6 +28,7 @@ const PokemonList = () => {
       })
       .finally(() => {
         setIsReady(true);
+
       });
   }
 
@@ -41,6 +43,9 @@ const PokemonList = () => {
             </p>
           </React.Fragment>
         ))}
+        <button
+          onClick={() => fetchData(resetURL)}>Reset Search
+        </button>
         <button
           onClick={() => fetchData(url)}>Load More
         </button>
