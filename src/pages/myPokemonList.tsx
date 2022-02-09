@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Menu from "./component/menu";
+import Menu from "../component/menu";
 
 const MyPokemonList = () => {
   return (

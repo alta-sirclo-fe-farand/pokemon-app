@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
-import Menu from "./component/menu";
-import UrlContext from './utils/variables';
+import Menu from "../component/menu";
+import UrlContext from '../utils/variables';
 import './style.css';
 
 const PokemonDetail = () => {

@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import PokemonList from '../pokemonList';
-import PokemonDetail from '../pokemonDetail';
-import MyPokemonList from '../myPokemonList';
+import PokemonList from '../pages/pokemonList';
+import PokemonDetail from '../pages/pokemonDetail';
+import MyPokemonList from '../pages/myPokemonList';
 import UrlContext from '../utils/variables';
 
 const Navigation = () => {
