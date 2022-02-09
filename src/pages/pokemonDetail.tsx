@@ -4,6 +4,7 @@ import axios from 'axios';
 import Menu from "../component/menu";
 import UrlContext from '../utils/variables';
 import './style.css';
+import { DetailCard } from "../component/detailCard";
 
 const PokemonDetail = () => {
   const navigate = useNavigate();
@@ -53,12 +54,18 @@ const PokemonDetail = () => {
 
   return (
     <div>
-      <div className="centered">
-        <h4>#{id}</h4>
+      <div className="mt-5 p-2">
+        <img className="sizing" src={photo} />
+        <DetailCard
+          name={name}
+          types={[type[0], type[1]]}
+          moves={[moves[0], moves[1], moves[2], moves[3]]}
+        />
+        {/* <h4>#{id}</h4>
         <img className="sizing" src={photo}></img>
         <h1>{name}</h1>
         <h4>{type[0]} &nbsp; {type[1]}</h4>
-        <h4>{moves[0]}, {moves[1]}, {moves[2]}, {moves[3]}</h4>
+        <h4>{moves[0]}, {moves[1]}, {moves[2]}, {moves[3]}</h4> */}
       </div>
       <div className="left">
         <div>Catch this pokemon?</div>

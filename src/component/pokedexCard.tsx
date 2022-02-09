@@ -7,7 +7,7 @@ export const PokedexCard = ({
 }: pokedexCardProps) => {
   return (
     <>
-      <div className="card" style={{width: "250px"}}
+      <div className="card" style={{width: "200px"}}
         onClick={onClick}>
         <img src={image} className="card-img-top" alt="..." />
         <div className="card-body">

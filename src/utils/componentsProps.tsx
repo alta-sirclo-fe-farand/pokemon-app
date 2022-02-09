@@ -5,3 +5,9 @@ export type pokedexCardProps = {
   image: string;
   onClick: () => void
 }
+
+export type detailCardProps = {
+  name: string;
+  types: string[];
+  moves: string[];
+}
