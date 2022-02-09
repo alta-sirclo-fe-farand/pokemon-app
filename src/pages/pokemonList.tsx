@@ -47,13 +47,13 @@ const PokemonList = () => {
         setIsReady(true);
         setCurrentPage(currentPage + 1);
       });
-  }
+    }
 
   if(isReady) {
     return (
       <div className="bg-dark">
-        <h1>Pokemon List</h1>
-        <div className="d-flex container justify-content-center flex-wrap">
+      <Menu />
+      <div className="d-flex container justify-content-center flex-wrap mt-5">
           {pokemons.map((pokemon, index) => (
             <div key={index} className='m-2 p-2'>
               <PokedexCard
@@ -74,7 +74,6 @@ const PokemonList = () => {
             onClick={() => fetchNextData(url)}>Load More
           </button>
         </div>
-        <Menu />
       </div>
     )
   } else {
