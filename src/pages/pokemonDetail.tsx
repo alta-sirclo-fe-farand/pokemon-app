@@ -8,16 +8,18 @@ import { DetailCard } from "../component/detailCard";
 
 const PokemonDetail = () => {
   const navigate = useNavigate();
-  const [isReady, setIsReady] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const detail = useParams();
   const [id, setId] = useState("");
   const [photo, setPhoto] = useState("");
   const [name, setName] = useState("");
   const [type, setType] = useState<string[]>([]);
   const [moves, setMoves] = useState<string[]>([]);
-  const [isSuccessful, setIsSuccessful] = useState("not yet");
   const url = useContext(UrlContext);
-  const [myPokemon, setMyPokemon] = useState<string>("");
+
+  // (localStorage.getItem('myPokemon') == null)
+  //   ? var myPokemon_deserialized = new Object();
+  //   : var myPokemon_deserialized = JSON.parse(localStorage.getItem('myPokemon'));
 
   useEffect(() => {
     fetchData();
@@ -30,14 +32,20 @@ const PokemonDetail = () => {
         setId(res.data.id);
         setName(res.data.name);
         setPhoto(res.data.sprites.other.dream_world.front_default);
-        setType([res.data.types[0].type.name, res.data.types[1].type.name]);
+        console.log(res.data.types);
+        setType(
+          (res.data.types)
+          ? res.data.types.map((type: any) => (type.type.name))
+          : ["unknown"]
+        );
+        // [res.data.types[0].type.name, res.data.types[1].type.name]
         setMoves([res.data.moves[0].move.name, res.data.moves[1].move.name, res.data.moves[2].move.name, res.data.moves[3].move.name]);
       })
       .catch((err) => {
         console.log(err);
       })
       .finally(() => {
-        setIsReady(true);
+        setIsLoading(false);
       });
   }
 
@@ -47,38 +55,44 @@ const PokemonDetail = () => {
       navigate("/");
     } else {
       navigate("/myList");
-      setMyPokemon(myPokemon+`_${name}`+"");
-      localStorage.setItem('pokemon', myPokemon);
+      // myPokemon_deserialized.pokemons.push({"id": `${id}`, "nickname": "myNickname"})
+      // localStorage.setItem('myPokemon', JSON.stringify(myPokemon_deserialized));
     }
   }
-
-  return (
-    <div>
-      <div className="mt-5 p-2">
-        <img className="sizing" src={photo} />
-        <DetailCard
-          name={name}
-          types={[type[0], type[1]]}
-          moves={[moves[0], moves[1], moves[2], moves[3]]}
-        />
-        {/* <h4>#{id}</h4>
-        <img className="sizing" src={photo}></img>
-        <h1>{name}</h1>
-        <h4>{type[0]} &nbsp; {type[1]}</h4>
-        <h4>{moves[0]}, {moves[1]}, {moves[2]}, {moves[3]}</h4> */}
+  
+  if(isLoading) {
+    return <p>Loading</p>
+  } else {
+    console.log(type);
+    return (
+      <div>
+        <div className="d-flex pb-3">
+          <Menu />
+        </div>
+        <div className="d-flex justify-content-center m-5 p-2">
+          <img className="sizing" src={photo} alt=""/>
+          <DetailCard
+            name={name}
+            types={type}
+            moves={[moves[0], moves[1], moves[2], moves[3]]}
+          />
+        </div>
+        <div className="d-block justify-content-center text-center">
+          <h4>Catch this pokemon?</h4>
+          <div>
+            <button
+              className="btn btn-outline-success mx-3"
+              onClick={() => probability()}>Yes, use my Pokeball
+            </button>
+            <button
+              className="btn btn-outline-danger mx-3"
+              onClick={() => navigate("/")}>No, go back to list
+            </button>
+          </div>
+        </div>
       </div>
-      <div className="left">
-        <div>Catch this pokemon?</div>
-        <button
-          onClick={() => probability()}>Yes, use my Pokeball
-        </button>
-        <button
-          onClick={() => navigate("/")}>No, go back to list
-        </button>
-      </div>
-      <Menu />
-    </div>
-  )
+    )
+  }
 }
 
 export default PokemonDetail;
