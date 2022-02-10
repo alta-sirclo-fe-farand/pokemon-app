@@ -1,4 +1,5 @@
 import { detailCardProps } from '../utils/componentsProps';
+import { ElementCard } from './elementCard/elementCard';
 
 export const DetailCard = ({
   name,
@@ -7,11 +8,29 @@ export const DetailCard = ({
 }: detailCardProps) => {
   return (
     <>
-      <div className="card" style={{width: "400px"}}>
+      <div className="card" style={{width: "550px"}}>
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
-          <p>{types[0]}, {types[1]}</p>
-          <p>{moves[0]}, {moves[1]}</p>
+          <h6>Type</h6>
+          {types
+            ? <div className="d-flex">
+              {types.map(type => (
+                <ElementCard name={type} />
+              ))}
+            </div>
+            : <div className="d-flex">{"Not Available"}</div>
+          }
+          <h6>Move</h6>
+          {moves
+            ? <div className="d-flex">
+              {moves.map(move => (
+                <div className="container">
+                  {move}
+                </div>
+              ))}
+            </div>
+            : <div className="d-flex">{"Not Available"}</div>
+          }
         </div>
       </div>
     </>
