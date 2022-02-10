@@ -57,6 +57,7 @@ const PokemonList = () => {
           {pokemons.map((pokemon, index) => (
             <div key={index} className='m-2 p-2'>
               <PokedexCard
+                id={20 * currentPage + index + 1}
                 name={pokemon.name}
                 image={imageURL+(20 * currentPage + index + 1)+".png"+""}
                 onClick={() => navigate(`/detail/${pokemon.name}`)}
