@@ -1,0 +1,43 @@
+.element-box {
+  max-width: "200px";
+  padding: 3px 40px;
+  margin: 10px;
+  border-radius: 10px;
+  display: flex;
+}
+
+.text-white {
+  color: white;
+}
+
+.grass {
+  background-color: rgb(155, 204, 80);
+}
+
+.poison {
+  background-color: rgb(185, 127, 201);
+}
+
+.fire {
+  background-color: rgb(253, 125, 36);
+}
+
+.flying {
+  background: linear-gradient(180deg, rgb(61, 199, 239) 50%, rgb(189, 185, 184) 50%);;
+}
+
+.water {
+  background-color: rgb(69, 146, 196);
+}
+
+.bug {
+  background-color: rgb(114, 159, 63);
+}
+
+.normal {
+  background-color: rgb(164, 172, 175);
+}
+
+.electric {
+  background-color: rgb(238, 213, 53);
+}
