@@ -38,7 +38,6 @@ const PokemonDetail = () => {
           ? res.data.types.map((type: any) => (type.type.name))
           : ["unknown"]
         );
-        // [res.data.types[0].type.name, res.data.types[1].type.name]
         setMoves([res.data.moves[0].move.name, res.data.moves[1].move.name, res.data.moves[2].move.name, res.data.moves[3].move.name]);
       })
       .catch((err) => {
@@ -63,7 +62,6 @@ const PokemonDetail = () => {
   if(isLoading) {
     return <p>Loading</p>
   } else {
-    console.log(type);
     return (
       <div>
         <div className="d-flex pb-3">
