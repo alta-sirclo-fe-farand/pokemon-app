@@ -37,7 +37,47 @@ export const ElementCard = ({
     ? <div className="element-box text-center electric">
       {name}
     </div>
-    : <div className="element-box text-center bg-dark">
+    : (name == "ground")
+    ? <div className="element-box text-center ground">
+      {name}
+    </div>
+    : (name == "fairy")
+    ? <div className="element-box text-center fairy">
+      {name}
+    </div>
+    : (name == "fighting")
+    ? <div className="element-box text-center text-white fighting">
+      {name}
+    </div>
+    : (name == "psychic")
+    ? <div className="element-box text-center text-white psychic">
+      {name}
+    </div>
+    : (name == "rock")
+    ? <div className="element-box text-center text-white rock">
+      {name}
+    </div>
+    : (name == "steel")
+    ? <div className="element-box text-center steel">
+      {name}
+    </div>
+    : (name == "ice")
+    ? <div className="element-box text-center ice">
+      {name}
+    </div>
+    : (name == "ghost")
+    ? <div className="element-box text-center text-white ghost">
+      {name}
+    </div>
+    : (name == "dragon")
+    ? <div className="element-box text-center text-white dragon">
+      {name}
+    </div>
+    : (name == "dark")
+    ? <div className="element-box text-center text-white dark">
+      {name}
+    </div>
+    : <div className="element-box text-center">
       {name}
     </div>
   )
