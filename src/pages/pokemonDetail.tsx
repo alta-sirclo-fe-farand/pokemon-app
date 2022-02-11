@@ -16,7 +16,6 @@ const PokemonDetail = () => {
   const [type, setType] = useState<string[]>([]);
   const [moves, setMoves] = useState<string[]>([]);
   const url = useContext(UrlContext);
-
   // (localStorage.getItem('myPokemon') == null)
   //   ? var myPokemon_deserialized = new Object();
   //   : var myPokemon_deserialized = JSON.parse(localStorage.getItem('myPokemon'));
@@ -63,17 +62,21 @@ const PokemonDetail = () => {
     return <p>Loading</p>
   } else {
     return (
-      <div>
+      <div className="bg-dark">
         <div className="d-flex pb-3">
           <Menu />
         </div>
-        <div className="d-flex justify-content-center m-5 p-2">
+        <div className="d-flex justify-content-center align-items-center m-5 p-2">
+          <button 
+            className="btn btn-outline-light m-3">{"<"}</button>
           <img className="sizing" src={photo} alt=""/>
           <DetailCard
             name={name}
             types={type}
             moves={[moves[0], moves[1], moves[2], moves[3]]}
           />
+          <button
+            className="btn btn-outline-light m-3">{">"}</button>
         </div>
         <div className="d-block justify-content-center text-center">
           <h4>Catch this pokemon?</h4>
