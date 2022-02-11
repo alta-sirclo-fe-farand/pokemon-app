@@ -60,7 +60,7 @@ const PokemonList = () => {
                 id={20 * currentPage + index + 1}
                 name={pokemon.name}
                 image={imageURL+(20 * currentPage + index + 1)+".png"+""}
-                onClick={() => navigate(`/detail/${pokemon.name}`)}
+                onClick={() => navigate(`/detail/${20 * currentPage + index + 1}`)}
               />
             </div>
           ))}
