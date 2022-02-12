@@ -10,6 +10,14 @@ export type detailCardProps = {
   moves?: string[];
 }
 
+export type myPokemonCardProps = {
+  id: number;
+  name: string;
+  nickname?: string;
+  image?: string;
+  onClick: () => void;
+}
+
 export type pokedexCardProps = {
   id: number;
   name: string;
