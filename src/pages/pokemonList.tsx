@@ -53,6 +53,9 @@ const PokemonList = () => {
     return (
       <div className="bg-dark">
       <Menu />
+      <div className="container d-flex justify-content-center" style={{padding: "300px"}}>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1024px-International_Pok%C3%A9mon_logo.svg.png" width="250px" />
+      </div>
       <div className="d-flex container justify-content-center flex-wrap mt-5">
           {pokemons.map((pokemon, index) => (
             <div key={index} className='m-2 p-2'>
