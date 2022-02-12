@@ -5,75 +5,75 @@ export const ElementCard = ({
   name
 }: elementCardProps) => {
   return (
-    (name == "grass")
+    (name === "grass")
     ? <div className="element-box text-center grass">
       {name}
     </div>
-    : (name == "poison")
+    : (name === "poison")
     ? <div className="element-box text-center text-white poison">
       {name}
     </div>
-    : (name == "fire")
+    : (name === "fire")
     ? <div className="element-box text-center text-white fire">
       {name}
     </div>
-    : (name == "flying")
+    : (name === "flying")
     ? <div className="element-box text-center flying">
       {name}
     </div>
-    : (name == "water")
+    : (name === "water")
     ? <div className="element-box text-center text-white water">
       {name}
     </div>
-    : (name == "bug")
+    : (name === "bug")
     ? <div className="element-box text-center text-white bug">
       {name}
     </div>
-    : (name == "normal")
+    : (name === "normal")
     ? <div className="element-box text-center normal">
       {name}
     </div>
-    : (name == "electric")
+    : (name === "electric")
     ? <div className="element-box text-center electric">
       {name}
     </div>
-    : (name == "ground")
+    : (name === "ground")
     ? <div className="element-box text-center ground">
       {name}
     </div>
-    : (name == "fairy")
+    : (name === "fairy")
     ? <div className="element-box text-center fairy">
       {name}
     </div>
-    : (name == "fighting")
+    : (name === "fighting")
     ? <div className="element-box text-center text-white fighting">
       {name}
     </div>
-    : (name == "psychic")
+    : (name === "psychic")
     ? <div className="element-box text-center text-white psychic">
       {name}
     </div>
-    : (name == "rock")
+    : (name === "rock")
     ? <div className="element-box text-center text-white rock">
       {name}
     </div>
-    : (name == "steel")
+    : (name === "steel")
     ? <div className="element-box text-center steel">
       {name}
     </div>
-    : (name == "ice")
+    : (name === "ice")
     ? <div className="element-box text-center ice">
       {name}
     </div>
-    : (name == "ghost")
+    : (name === "ghost")
     ? <div className="element-box text-center text-white ghost">
       {name}
     </div>
-    : (name == "dragon")
+    : (name === "dragon")
     ? <div className="element-box text-center text-white dragon">
       {name}
     </div>
-    : (name == "dark")
+    : (name === "dark")
     ? <div className="element-box text-center text-white dark">
       {name}
     </div>
