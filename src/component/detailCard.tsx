@@ -14,8 +14,10 @@ export const DetailCard = ({
           <h6>Type</h6>
           {types
             ? <div className="d-flex">
-              {types.map(type => (
-                <ElementCard name={type} />
+              {types.map((type, index: number) => (
+                <div key={index}>
+                  <ElementCard name={type} />
+                </div>
               ))}
             </div>
             : <div className="d-flex">{"Not Available"}</div>
@@ -23,8 +25,8 @@ export const DetailCard = ({
           <h6>Move</h6>
           {moves
             ? <div className="d-flex">
-              {moves.map(move => (
-                <div className="container">
+              {moves.map((move, index: number) => (
+                <div key={index} className="container">
                   {move}
                 </div>
               ))}
