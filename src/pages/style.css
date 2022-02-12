@@ -11,15 +11,6 @@ body {
   text-transform: capitalize;
 }
 
-.centered {
-  display: block;
-  text-align: center;
-  padding-bottom: 50px;
-}
-
-.left {
-  margin-left: 20px;
-}
 .sizing {
   width: 200px;
   height: 200px;
