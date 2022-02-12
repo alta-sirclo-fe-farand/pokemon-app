@@ -16,9 +16,10 @@ const PokemonDetail = () => {
   const [type, setType] = useState<string[]>([]);
   const [moves, setMoves] = useState<string[]>([]);
   const url = useContext(UrlContext);
-  // (localStorage.getItem('myPokemon') == null)
-  //   ? var myPokemon_deserialized = new Object();
-  //   : var myPokemon_deserialized = JSON.parse(localStorage.getItem('myPokemon'));
+  var myPokemon_deserialized: any;
+  (localStorage.getItem('myPokemon') == null)
+    ? myPokemon_deserialized = new Object()
+    : myPokemon_deserialized = JSON.parse(localStorage.getItem('myPokemon') || "");
 
   useEffect(() => {
     fetchData();
@@ -31,10 +32,9 @@ const PokemonDetail = () => {
         setId(res.data.id);
         setName(res.data.name);
         setPhoto(res.data.sprites.other.dream_world.front_default);
-        console.log(res.data.types);
         setType(
           (res.data.types)
-          ? res.data.types.map((type: any) => (type.type.name))
+          ? res.data.types.map((type: any) => type.type.name)
           : ["unknown"]
         );
         setMoves([res.data.moves[0].move.name, res.data.moves[1].move.name, res.data.moves[2].move.name, res.data.moves[3].move.name]);
@@ -53,8 +53,8 @@ const PokemonDetail = () => {
       navigate("/");
     } else {
       navigate("/myList");
-      // myPokemon_deserialized.pokemons.push({"id": `${id}`, "nickname": "myNickname"})
-      // localStorage.setItem('myPokemon', JSON.stringify(myPokemon_deserialized));
+      myPokemon_deserialized.pokemons.push({"id": `${id}`, "photo": `${photo}`, "name": `${name}`, "nickname": "myNickname"})
+      localStorage.setItem('myPokemon', JSON.stringify(myPokemon_deserialized));
     }
   }
   
@@ -62,7 +62,7 @@ const PokemonDetail = () => {
     return <p>Loading</p>
   } else {
     return (
-      <div className="bg-dark">
+      <div>
         <div className="d-flex pb-3">
           <Menu />
         </div>
