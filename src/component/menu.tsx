@@ -5,7 +5,7 @@ const Menu = () => {
   const navigate = useNavigate();
   
   return (
-    <ul>
+    <ul className="mb-2">
       <li>
         <a onClick={() => navigate("/")}>PokeList</a>
       </li>
