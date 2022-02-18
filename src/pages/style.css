@@ -9,6 +9,7 @@ body {
   margin: 0;
   height: 100%;
   text-transform: capitalize;
+  background-color: rgb(33,37,41);
 }
 
 .sizing {
