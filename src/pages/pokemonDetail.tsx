@@ -69,7 +69,6 @@ const PokemonDetail = () => {
         <div className="d-flex justify-content-center align-items-center m-5 p-2">
           <button 
             className="btn btn-outline-light m-3">{"<"}</button>
-          {/* <img className="sizing" src={photo} alt=""/> */}
           <DetailCard
             name={name}
             image={photo}
