@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Menu from "../component/menu";
 import { MyPokemonCard } from "../component/myPokemonCard/myPokemonCard";
+import { handleIdConversion } from "../utils/handleIdConversion";
 
 const MyPokemonList = () => {
   var myPokemon_deserialized = JSON.parse(localStorage.getItem('myPokemon') as string) || {};
@@ -13,7 +14,7 @@ const MyPokemonList = () => {
     setRefreshToggle(!refreshToggle);
   }
   return (
-    <div className="bg-dark">
+    <div>
       <div className="d-flex pb-3">
         <Menu />
       </div>
@@ -25,7 +26,7 @@ const MyPokemonList = () => {
           : myPokemon_deserialized.pokemons.map((pokemon: any, index: number) => (
             <div key={index} className="p-1">
               <MyPokemonCard
-                id={pokemon.id}
+                id={handleIdConversion(pokemon.id)}
                 name={pokemon.name}
                 nickname={pokemon.nickname}
                 image={pokemon.photo}

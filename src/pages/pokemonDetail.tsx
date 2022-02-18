@@ -10,7 +10,7 @@ const PokemonDetail = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
   const detail = useParams();
-  const [id, setId] = useState("");
+  const [id, setId] = useState();
   const [photo, setPhoto] = useState("");
   const [name, setName] = useState("");
   const [type, setType] = useState<string[]>([]);
@@ -69,20 +69,21 @@ const PokemonDetail = () => {
         <div className="d-flex justify-content-center align-items-center m-5 p-2">
           <button 
             className="btn btn-outline-light m-3">{"<"}</button>
-          <img className="sizing" src={photo} alt=""/>
+          {/* <img className="sizing" src={photo} alt=""/> */}
           <DetailCard
             name={name}
+            image={photo}
             types={type}
             moves={[moves[0], moves[1], moves[2], moves[3]]}
           />
           <button
             className="btn btn-outline-light m-3">{">"}</button>
         </div>
-        <div className="d-block justify-content-center text-center">
+        <div className="d-block justify-content-center text-center text-light">
           <h4>Catch this pokemon?</h4>
           <div>
             <button
-              className="btn btn-outline-success mx-3"
+              className="btn btn-success mx-3"
               onClick={() => probability()}>Yes, use my Pokeball
             </button>
             <button
